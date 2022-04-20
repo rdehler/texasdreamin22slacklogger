@@ -1,16 +1,68 @@
 <template>
     <div class="slds-m-around_medium">
-        <lightning-button
-            variant="brand"
-            label="Failure With Log"
-            onclick={loadFailureWithLog}
-            padding=5>
-        </lightning-button>
-        <lightning-button
-            variant="brand"
-            label="Multiple Failures With Logs"
-            onclick={loadMultipleFailuresWithLog}
-            padding=5>
-        </lightning-button>
+        <lightning-layout multiple-rows="false">
+            <lightning-layout-item padding="around-medium" size=6>
+                <lightning-formatted-text 
+                    value="Division Calculator!"
+                    ></lightning-formatted-text>
+                <lightning-input
+                    name="numerator"
+                    value={numerator}
+                    label="Enter Numerator: "
+                    onchange={handleNumeratorChange}
+                    >
+
+                </lightning-input>
+
+                <lightning-input
+                    name="denominator"
+                    value={denominator}
+                    label="Enter Denominator: "
+                    onchange={handleDenominatorChange}
+                    >
+
+                </lightning-input>
+
+                <lightning-input
+                    value={resultDivide}
+                    label="Result: "
+                    read-only="true">
+
+                </lightning-input>
+
+                <lightning-button
+                    variant="brand"
+                    label="Divide!"
+                    onclick={loadDivide}
+                    padding=5>
+                </lightning-button>
+            </lightning-layout-item>
+                <lightning-layout-item padding="around-medium" size="6">
+                    <lightning-formatted-text 
+                    value="Create Account!"
+                    ></lightning-formatted-text>
+                    <lightning-input
+                    value={accountName}
+                    label="Account Name: "
+                    onchange={handleAccountSearchChange}>
+
+                </lightning-input>
+                <lightning-input
+                    value={resultAccount}
+                    label="Result: "
+                    read-only="true">
+
+                </lightning-input>
+                <lightning-button
+                    variant="brand"
+                    label="Create!"
+                    onclick={loadCreateAccount}
+                    padding=5>
+                </lightning-button>
+            </lightning-layout-item>
+            
+        
+        </lightning-layout>
+        
     </div>
 </template>

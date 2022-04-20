@@ -1,54 +1,31 @@
 public with sharing class LogDemo {
-    
+
     @AuraEnabled
-    public static void failureWithLog(){
+    public static Integer divide(Integer numerator, Integer denominator){
         try {
-            update new User();
+            return numerator/denominator;
         } catch(Exception ex){
             new Log(LoggingLevel.ERROR)
-            .setMessage('Test Error Message')
+            .setMessage('Divide Error')
             .setException(ex)
             .write();
+            return null;
         }
     }
 
     @AuraEnabled
-    public static void multipleFailuresWithLog(){
+    public static Account createAccount(String accountName){
         try {
-            
-
-            try {
-                Integer numerator = 41;
-                Integer denominator = 0;
-                Integer i = numerator/denominator;
-            } catch(Exception ex){
-                new Log(LoggingLevel.ERROR)
-                .setMessage('You are dividing by zero!')
-                .setException(ex)
-                .write();
-            }
-
-            try {
-                Account acct = [
-                    SELECT Name
-                    FROM Account
-                    WHERE Name = 'Some Gibberish'
-                    LIMIT 1
-                ];
-                String name = acct.Name;
-            } catch (NullPointerException npe){
-                new Log(LoggingLevel.ERROR)
-                .setMessage('Account name is null')
-                .setException(npe)
-                .write();
-                throw npe;
-            } 
-
+            Account acct = new Account(Name = accountName);
+            insert acct;
+            return acct;
         } catch(Exception ex){
             new Log(LoggingLevel.ERROR)
-            .setMessage('Generic Exception')
+            .setMessage('Error retrieving account')
             .setException(ex)
             .write();
+            return null;
         }
     }
+
 }
