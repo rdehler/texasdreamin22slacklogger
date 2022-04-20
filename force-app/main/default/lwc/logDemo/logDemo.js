@@ -54,7 +54,7 @@ export default class LogDemo extends LightningElement {
         this.denominator = event.target.value;
     }
     handleAccountSearchChange(event){
-        this.searchText = event.target.value;
+        this.accountName = event.target.value;
     }
 }
 

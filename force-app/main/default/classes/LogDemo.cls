@@ -18,6 +18,13 @@ public with sharing class LogDemo {
         try {
             Account acct = new Account(Name = accountName);
             insert acct;
+            acct = [
+                SELECT Id, Name
+                FROM Account
+                WHERE Name = :accountName
+                LIMIT 1
+                ];
+
             return acct;
         } catch(Exception ex){
             new Log(LoggingLevel.ERROR)
