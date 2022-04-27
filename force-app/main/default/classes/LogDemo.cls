@@ -28,7 +28,7 @@ public with sharing class LogDemo {
             return acct;
         } catch(Exception ex){
             new Log(LoggingLevel.ERROR)
-            .setMessage('Error retrieving account')
+            .setMessage('Error creating account')
             .setException(ex)
             .write();
             return null;

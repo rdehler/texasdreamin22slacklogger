@@ -8,11 +8,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Log__c.Details__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Log__c.Exception_Cause__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -74,11 +69,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Log__c.Timestamp__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Log__c.Transaction_Limits__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
